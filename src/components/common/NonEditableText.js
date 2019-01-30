@@ -1,12 +1,12 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 
-const NonEditableText = ({ label }) => {
+const NonEditableText = ({ label, value }) => {
   const { labelStyle, containerStyle } = styles;
 
   return (
     <View style={containerStyle}>
-      <Text style={labelStyle}>{label}</Text>
+      <Text style={labelStyle}>{label}</Text><Text style={labelStyle}>{value}</Text>
     </View>
   );
 };

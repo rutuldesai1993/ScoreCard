@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Text, ScrollView, View } from 'react-native';
 import NumericInput from 'react-native-numeric-input';
 import { Slider } from 'react-native-elements';
+// import { updateroi } from '../actions/updateroi';
 import { Card, CardSection, NonEditableTextCenter } from './common';
 
 export default class ScoreCard extends Component {
@@ -32,6 +33,36 @@ export default class ScoreCard extends Component {
 
         };
     }
+    handleRIE = (value) => {
+      this.setState({ rie: value });
+      this.gtm = this.rie * this.rpy;
+      this.setState({ gtm })
+    }
+    handleRPY = (value) => {
+      this.setState({ rpy: value });
+    }
+    handleAAR = (value) => {
+      this.setState({ aar: value });
+    }
+    handleFPY = (value) => {
+      this.setState({ fpy: value });
+    }
+    handleDAS = (value) => {
+      this.setState({ das: value });
+    }
+    handleDS = (value) => {
+      this.setState({ ds: value });
+    }
+    handleIAS = (value) => {
+      this.setState({ ias: value });
+    }
+    handleRPM = (value) => {
+      this.setState({ rpm: value });
+    }
+    handleISH = (value) => {
+      this.setState({ ish: value });
+    }
+
   render() {
     return (
       <ScrollView>
@@ -45,16 +76,22 @@ export default class ScoreCard extends Component {
         <NonEditableTextCenter
         label="Revenue Per Year: "
         />
-        <NumericInput />
+        <NumericInput
+        value={this.state.rpy}
+        onChange={this.handleRPY}
+        />
         </CardSection>
         <CardSection>
-        <NonEditableTextCenter
-        label="Revenue Increase Estimate: 0.15"
+        <NumericInput
+        label="Revenue Increase Estimate: "
+        value={this.state.rie}
+        onChange={this.handleRIE}
         />
         </CardSection>
         <CardSection>
         <NonEditableTextCenter
-        label="GTM: 0.0"
+        label="GTM:"
+        value={this.state.gtm}
         />
         </CardSection>
       <Text style={styles.errorTextStyle} />
@@ -67,7 +104,10 @@ export default class ScoreCard extends Component {
         <NonEditableTextCenter
         label="Application Annual Revenue: "
         />
-        <NumericInput />
+        <NumericInput
+        value={this.state.aar}
+        onChange={this.handleAAR}
+        />
         </CardSection>
         <CardSection>
         <NonEditableTextCenter
@@ -76,7 +116,8 @@ export default class ScoreCard extends Component {
         </CardSection>
         <CardSection>
         <NonEditableTextCenter
-        label="GFX: 0.0"
+        label="GFX:"
+        value={this.state.gfx}
         />
         </CardSection>
         <Text style={styles.errorTextStyle} />
@@ -89,7 +130,10 @@ label="Gains from enhanced IT team productivity and cost reduction of IT headcou
         <NonEditableTextCenter
         label="IT average salary: "
         />
-        <NumericInput />
+        <NumericInput
+        value={this.state.ias}
+        onChange={this.handleIAS}
+        />
         </CardSection>
         <CardSection>
         <NonEditableTextCenter
@@ -100,22 +144,33 @@ label="Gains from enhanced IT team productivity and cost reduction of IT headcou
         <NonEditableTextCenter
         label="IT staff headcount: "
         />
-        <NumericInput />
+        <NumericInput
+        value={this.state.ish}
+        onChange={this.handleISH}
+        />
         </CardSection>
         <CardSection>
         <NonEditableTextCenter
-        label="GHC (IT Ops): 0.0"
+        label="GHC (IT Ops):"
+        value={this.state.ghc1}
         />
         </CardSection>
         <CardSection>
         <NonEditableTextCenter
         label="Developer average salary: "
         />
-        <NumericInput />
+        <NumericInput
+        value={this.state.das}
+        onChange={this.handleDAS}
+        />
         </CardSection>
         <CardSection>
         <NonEditableTextCenter
-        label="Average Minutes to recover difference: 28 minutes"
+        label="Dev staff: "
+        />
+        <NumericInput
+        value={this.state.ds}
+        onChange={this.handleDS}
         />
         </CardSection>
         <CardSection>
@@ -125,9 +180,11 @@ label="Gains from enhanced IT team productivity and cost reduction of IT headcou
         </CardSection>
         <CardSection>
         <NonEditableTextCenter
-        label="GHC (Developers): 0.0"
+        label="GHC (Developers):"
+        value={this.state.ghc2}
         />
         </CardSection>
+
         <Text style={styles.errorTextStyle} />
         <CardSection>
             <NonEditableTextCenter
@@ -138,36 +195,46 @@ label="Gains from cost reduction of application failures resulting from increase
         <NonEditableTextCenter
         label="Failures Per Year: "
         />
-        <NumericInput />
+        <NumericInput
+        value={this.state.fpy}
+        onChange={this.handleFPY}
+        />
         </CardSection>
         <CardSection>
         <NonEditableTextCenter
-        label="Average Minutes to recover difference: 28.3 minutes"
+        label="Average Minutes to recover difference: "
+        value={this.state.min}
         />
         </CardSection>
         <CardSection>
         <NonEditableTextCenter
         label="Revenue per minute: "
         />
-        <NumericInput />
+        <NumericInput
+        value={this.state.rpm}
+        onChange={this.handleRPM}
+        />
         <NonEditableTextCenter
         label=" Minutes"
         />
         </CardSection>
         <CardSection>
         <NonEditableTextCenter
-        label="GQL: 0.0"
+        label="GQL:"
+        value={this.state.gql}
         />
         </CardSection>
         <Text style={styles.errorTextStyle} />
         <CardSection>
         <NonEditableTextCenter
         label="Return of Investment"
+        value={this.state.roi}
         />
         </CardSection>
         <CardSection>
         <NonEditableTextCenter
         label="Cost of Investment:"
+        value={this.state.coi}
         />
         </CardSection>
         <CardSection>

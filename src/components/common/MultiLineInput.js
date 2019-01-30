@@ -1,7 +1,8 @@
 import React from 'react';
 import { TextInput, View, Text } from 'react-native';
 
-const MultiLineInput = ({ label, value, onChangeText, placeholder, secureTextEntry, multiline, numberOfLines }) => {
+const MultiLineInput = ({ label, value, onChangeText, placeholder, secureTextEntry,
+   }) => {
   const { inputStyle, labelStyle, containerStyle } = styles;
 
   return (
